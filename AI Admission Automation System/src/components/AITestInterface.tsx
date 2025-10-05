@@ -5,7 +5,7 @@ import { Button } from './ui/button';
 import { Progress } from './ui/progress';
 import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
-import { Clock, ChevronLeft, ChevronRight, Send, AlertTriangle, Loader2 } from 'lucide-react';
+import { Clock, ChevronLeft, ChevronRight, Send, TriangleAlert as AlertTriangle, Loader as Loader2 } from 'lucide-react';
 import { Alert, AlertDescription } from './ui/alert';
 import { generateQuestions, evaluateAnswer } from '../services/geminiService';
 import { saveTestResult, saveAttempts, getAttempts, saveCurrentLevel } from '../services/storageService';

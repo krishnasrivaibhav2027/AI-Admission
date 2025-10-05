@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 import { Progress } from './ui/progress';
-import { Trophy, Star, Clock, Target, RefreshCw, Mail, ArrowLeft, Award, CheckCircle, XCircle } from 'lucide-react';
+import { Trophy, Star, Clock, Target, RefreshCw, Mail, ArrowLeft, Award, CircleCheck as CheckCircle, Circle as XCircle } from 'lucide-react';
 import { TestResult, UserData } from '../App';
 
 interface ScoreScreenProps {
