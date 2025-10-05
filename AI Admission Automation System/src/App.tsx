@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { RegistrationScreen } from './components/RegistrationScreen';
 import { LevelMap } from './components/LevelMap';
-import { TestInterface } from './components/TestInterface';
+import { AITestInterface } from './components/AITestInterface';
 import { ScoreScreen } from './components/ScoreScreen';
 import { EmailSentScreen } from './components/EmailSentScreen';
 import { LoadingScreen } from './components/LoadingScreen';
@@ -149,7 +149,7 @@ export default function App() {
             exit={{ opacity: 0, x: -100 }}
             transition={{ duration: 0.5 }}
           >
-            <TestInterface
+            <AITestInterface
               level={currentLevel}
               onComplete={handleTestComplete}
               userData={userData}

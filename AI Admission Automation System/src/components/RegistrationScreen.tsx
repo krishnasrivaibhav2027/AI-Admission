@@ -6,6 +6,8 @@ import { Input } from './ui/input';
 import { Label } from './ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { Calendar } from 'lucide-react';
+import { v4 as uuidv4 } from '../utils/uuid';
+import { saveStudentData } from '../services/storageService';
 
 import { UserData } from '../App';
 
@@ -89,16 +91,22 @@ export function RegistrationScreen({ onComplete }: RegistrationScreenProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
 
     setIsSubmitting(true);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
+
+    const studentData = {
+      student_id: uuidv4(),
+      ...formData
+    };
+
+    saveStudentData(studentData);
+
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
     onComplete(formData as UserData);
   };
 

@@ -65,9 +65,25 @@ export function ScoreScreen({ results, userData, onRetake, onEmailSent, onBackTo
 
   const handleSendEmail = async () => {
     setIsEmailSending(true);
-    // Simulate email sending
-    await new Promise(resolve => setTimeout(resolve, 3000));
-    onEmailSent();
+
+    try {
+      const { sendEmail } = await import('../services/emailService');
+      const emailType = allLevelsPassed ? 'acceptance' : currentResult.passed ? 'retry' : 'rejection';
+
+      if (userData) {
+        await sendEmail(userData, emailType, {
+          level: `Level ${currentResult.level}`,
+          score: currentResult.score
+        });
+      }
+
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      onEmailSent();
+    } catch (error) {
+      console.error('Failed to send email:', error);
+      alert('Failed to send email. Please try again.');
+      setIsEmailSending(false);
+    }
   };
 
   const getCertificateLevel = () => {
